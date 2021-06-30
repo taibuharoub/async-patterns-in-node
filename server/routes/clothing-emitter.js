@@ -4,9 +4,9 @@ const fsPromises = require('fs').promises;
 const datafile = 'server/data/clothing.json';
 const router = express.Router();
 
-//below allows as to pass an object into this module
-module.exports = function(monitor) {
-  let dataMonitor = monitor;
+const DataMonitor = require("../dataMinitor");
+
+let dataMonitor = new DataMonitor();
 
 dataMonitor.on("dataAdded", (item) => {
   console.log(`New data was added: ${item}`);
@@ -77,5 +77,4 @@ function saveClothingData(data) {
   return fsPromises.writeFile(datafile, JSON.stringify(data, null, 4));
 }
 
-  return router;
-}
+module.exports = router;
