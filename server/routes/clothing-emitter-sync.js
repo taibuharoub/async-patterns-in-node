@@ -9,7 +9,7 @@ module.exports = function(monitor) {
   let dataMonitor = monitor;
 
 dataMonitor.on("dataAdded", (item) => {
-  setImmediate(() => console.log(`New data was added: ${item}`));
+  console.log(`New data was added: ${item}`);
 })
   
   /* GET all clothing */
